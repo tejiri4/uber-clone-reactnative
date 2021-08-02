@@ -1,9 +1,11 @@
 import React from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import HomeScreen from '../screens/HomeScreen';
-import {setOrigin, setDestination} from '../store/slice/navSlice';
+import {setOrigin, setDestination, selectOrigin} from '../store/slice/navSlice';
 
 const HomeScreenContainer = () => {
+  const origin = useSelector(selectOrigin);
+
   const dispatch = useDispatch();
 
   const handleSearchPlacesClick = (data, details) => {
@@ -16,7 +18,12 @@ const HomeScreenContainer = () => {
 
     dispatch(setDestination(null));
   };
-  return <HomeScreen handleSearchPlacesClick={handleSearchPlacesClick} />;
+  return (
+    <HomeScreen
+      handleSearchPlacesClick={handleSearchPlacesClick}
+      origin={origin}
+    />
+  );
 };
 
 export default HomeScreenContainer;

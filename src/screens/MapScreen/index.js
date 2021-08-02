@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import tw from 'tailwind-react-native-classnames';
-import Map from '../../modules/map';
+import Map from '../../modules/map/RideMap';
 
 const MapScreen = ({origin}) => {
   return (
